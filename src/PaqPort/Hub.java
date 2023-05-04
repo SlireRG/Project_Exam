@@ -1,6 +1,8 @@
 package PaqPort;
 public class Hub {
 
+    //Remi GUERIN
+
     //Attributes
     private int idHub;
     private final Container[][] storage = new Container[10][12];
@@ -106,4 +108,33 @@ public class Hub {
         Map.append("\n");
         return Map.toString();
     }
+    public void markCheckedInCustoms(double maxWeight, int hubNumber) {
+        Container[][] storage = getStorage();
+        for (int i = 0; i < storage.length; i++) {
+            for (int j = 0; j < storage[i].length; j++) {
+                Container container = storage[i][j];
+                if (container != null && container.getWeight() <= maxWeight) {
+                    container.setInspected(true);
+                }
+            }
+        }
+        System.out.println("All containers with weight less than or equal to " + maxWeight + " in Hub " + hubNumber + " have been marked as checked in customs.");
+    }
+    public String displayContainersByWeight(double weight, int hubNumber) {
+        StringBuilder result = new StringBuilder();
+        result.append("Containers in Hub " + hubNumber + " with weight less than or equal to " + weight + " tons:\n");
+        Container[][] storage = hubs[hubNumber].getStorage();
+        for (int i = 0; i < storage.length; i++) {
+            for (int j = 0; j < storage[i].length; j++) {
+                Container container = storage[i][j];
+                if (container != null && container.getWeight() <= weight) {
+                    result.append("Container ID: " + container.getIdContainer() + " | Sender Company: " + container.getSendingCompany() + " | Weight: " + container.getWeight() + " tons | Customs Check Status: " + container.isInspected() + "\n");
+                }
+            }
+        }
+        return result.toString();
+    }
+
+
+
 }

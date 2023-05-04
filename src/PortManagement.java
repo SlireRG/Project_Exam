@@ -2,7 +2,11 @@ import PaqPort.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+// Remi GUERIN
 
+add a method that accepts as argument a weight in tons and a HUb number :
+a) mark as checked in customs all the containers that have a weight less or equal to the one passed as argument inside that hub
+b) return as a String information about all containers with weight less or equal to the last one as argument within that hub (only the container id, the sender company, the weight and the customs check status will be shown).
 public class PortManagement extends JFrame {
 
     private JPanel mainPanel;
@@ -31,6 +35,8 @@ public class PortManagement extends JFrame {
     private JTextField countryTextField;
     private JButton ClearBtn;
     private JTextArea textArea1;
+    private JButton weightButton;
+    private JButton hubButton;
 
     public PortManagement(Port port){
 
@@ -38,6 +44,13 @@ public class PortManagement extends JFrame {
         setTitle("Port Management: Valencia");
         setSize(1000,500);
         setVisible(true);
+
+        weightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
 
         pileButton.addActionListener(new ActionListener() {
             @Override

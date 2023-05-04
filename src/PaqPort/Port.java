@@ -1,9 +1,10 @@
 package PaqPort;
 
+//Remi GUERIN
 public class Port {
 
     //Attributes
-    private final Hub Hubs[] = new Hub[3];
+    protected Hub Hubs[] = new Hub[3];
 
     //Constructors
     public Port() {

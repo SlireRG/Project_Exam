@@ -1,6 +1,8 @@
 package PaqPort;
 import java.util.Random;
 
+//Remi GUERIN
+
 public class Container {
 
     //Attributes
@@ -31,6 +33,26 @@ public class Container {
     }
     public int getPriorityLevel() {
         return priorityLevel;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getSendingCompany() {
+        return sendingCompany;
+    }
+
+    public boolean isInspected() {
+        return inspected;
+    }
+
+    public void setInspected(boolean inspected) {
+        this.inspected = inspected;
     }
 
     //Methods
