@@ -5,7 +5,7 @@ public class Hub {
 
     //Attributes
     private int idHub;
-    private final Container[][] storage = new Container[10][12];
+    private static final Container[][] storage = new Container[10][12];
 
     //Constructor
     public Hub(int idHub) {
@@ -17,7 +17,7 @@ public class Hub {
         return idHub;
     }
     public Container[][] getStorage() {
-        return this.storage;
+        return storage;
     }
 
     //Tests
@@ -109,7 +109,7 @@ public class Hub {
         return Map.toString();
     }
 
-    public static String displayContainersByWeight(double weight) {
+    /*public static String displayContainersByWeight(double weight) {
         StringBuilder result = new StringBuilder();
         int hubNumber = 0;
         result.append("Containers in Hub " + hubNumber + " with weight less than or equal to " + weight + " tons:\n");
@@ -125,8 +125,8 @@ public class Hub {
         }
         return result.toString();
     }
-    public static void markCheckedInCustoms(double maxWeight, int hubNumber) {
-        Container[][] storage = getStorage();
+    public static void markCheckedInCustoms(double maxWeight, int hub) {
+        Container[][] storage = hub.getStorage();
         for (int i = 0; i < storage.length; i++) {
             for (int j = 0; j < storage[i].length; j++) {
                 Container container = storage[i][j];
@@ -135,8 +135,10 @@ public class Hub {
                 }
             }
         }
-        System.out.println("All containers with weight less than or equal to " + maxWeight + " in Hub " + hubNumber + " have been marked as checked in customs.");
-    }
+        System.out.println("All containers with weight less than or equal to " + maxWeight + " in Hub " + hub.getIdHub() + " have been marked as checked in customs.");
+    }*/
+
+
 
 
 

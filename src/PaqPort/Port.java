@@ -131,4 +131,20 @@ public class Port {
         }
         return Map.toString();
     }
+    public String checkedByCustoms(int weight, int hubId){
+        Container[][] storage = Hubs[hubId].getStorage();
+        StringBuilder Modified = new StringBuilder("Containers checked: \n");
+        for (int j = 0; j < 10; j++) {
+            for (int k = 0; k < 12; k++) {
+                if (storage[j][k].getWeight()<=weight) {
+                    storage[j][k].setInspected(true);
+                    Modified.append("ID: " + storage[j][k].getIdContainer() + "\n" +
+                            "Sending: " + storage[j][k].getSendingCompany() + "\n" +
+                            "Weight: " + storage[j][k].getWeight() + "\n" +
+                            "Custom status: Checked \n\n");
+                }
+            }
+        }
+        return Modified.toString();
+    }
 }

@@ -55,14 +55,15 @@ public class PortManagement extends JFrame {
                 } else if (a3RadioButton.isSelected()) {
                     hubNumber = 3;
                 }
-                Hub.markCheckedInCustoms(hubNumber, weight);
+                port.checkedByCustoms(hubNumber, weight);
             }
         });
         hubButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int weight = Integer.parseInt(textFieldWeight.getText());
-                textArea1.setText(Hub.displayContainersByWeight(weight));
+                int hubNumber = 0;
+                textArea1.setText(port.checkedByCustoms(hubNumber));
             }
         });
 
