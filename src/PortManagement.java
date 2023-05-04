@@ -55,7 +55,7 @@ public class PortManagement extends JFrame {
                 } else if (a3RadioButton.isSelected()) {
                     hubNumber = 3;
                 }
-                port.checkedByCustoms(hubNumber, weight);
+                port.checkedByCustoms(hubNumber);
             }
         });
         hubButton.addActionListener(new ActionListener() {
