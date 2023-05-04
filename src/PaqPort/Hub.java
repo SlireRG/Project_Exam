@@ -108,21 +108,12 @@ public class Hub {
         Map.append("\n");
         return Map.toString();
     }
-    public void markCheckedInCustoms(double maxWeight, int hubNumber) {
-        Container[][] storage = getStorage();
-        for (int i = 0; i < storage.length; i++) {
-            for (int j = 0; j < storage[i].length; j++) {
-                Container container = storage[i][j];
-                if (container != null && container.getWeight() <= maxWeight) {
-                    container.setInspected(true);
-                }
-            }
-        }
-        System.out.println("All containers with weight less than or equal to " + maxWeight + " in Hub " + hubNumber + " have been marked as checked in customs.");
-    }
-    public String displayContainersByWeight(double weight, int hubNumber) {
+
+    public static String displayContainersByWeight(double weight) {
         StringBuilder result = new StringBuilder();
+        int hubNumber = 0;
         result.append("Containers in Hub " + hubNumber + " with weight less than or equal to " + weight + " tons:\n");
+        Hub[] hubs = new Hub[0];
         Container[][] storage = hubs[hubNumber].getStorage();
         for (int i = 0; i < storage.length; i++) {
             for (int j = 0; j < storage[i].length; j++) {
@@ -133,6 +124,18 @@ public class Hub {
             }
         }
         return result.toString();
+    }
+    public static void markCheckedInCustoms(double maxWeight, int hubNumber) {
+        Container[][] storage = getStorage();
+        for (int i = 0; i < storage.length; i++) {
+            for (int j = 0; j < storage[i].length; j++) {
+                Container container = storage[i][j];
+                if (container != null && container.getWeight() <= maxWeight) {
+                    container.setInspected(true);
+                }
+            }
+        }
+        System.out.println("All containers with weight less than or equal to " + maxWeight + " in Hub " + hubNumber + " have been marked as checked in customs.");
     }
 
 

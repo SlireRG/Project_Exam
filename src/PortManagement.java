@@ -4,9 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 // Remi GUERIN
 
-add a method that accepts as argument a weight in tons and a HUb number :
-a) mark as checked in customs all the containers that have a weight less or equal to the one passed as argument inside that hub
-b) return as a String information about all containers with weight less or equal to the last one as argument within that hub (only the container id, the sender company, the weight and the customs check status will be shown).
+
 public class PortManagement extends JFrame {
 
     private JPanel mainPanel;
@@ -46,6 +44,30 @@ public class PortManagement extends JFrame {
         setVisible(true);
 
         weightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int weight = Integer.parseInt(textFieldWeight.getText());
+                int hubNumber = 0;
+                if (a1RadioButton.isSelected()) {
+                    hubNumber = 1;
+                } else if (a2RadioButton.isSelected()) {
+                    hubNumber = 2;
+                } else if (a3RadioButton.isSelected()) {
+                    hubNumber = 3;
+                }
+                Hub.markCheckedInCustoms(hubNumber, weight);
+            }
+        });
+        hubButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int weight = Integer.parseInt(textFieldWeight.getText());
+                textArea1.setText(Hub.displayContainersByWeight(weight));
+            }
+        });
+
+
+        hubButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
